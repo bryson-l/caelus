@@ -10,7 +10,7 @@ import { TabComponent } from './tabs/tab.component';
 export class AppComponent {
   title: string = 'Caelus';
   tabComponent: TabComponent
-  tabs = this.tabComponent.tabMap
+  //tabs = this.tabComponent.tabMap
   selectedTab: string = 'home'
   @ViewChild(TabDirective, {static: true}) tabHost: TabDirective;
   interval: any;
@@ -18,22 +18,22 @@ export class AppComponent {
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 
   ngOnInit() {
-    this.loadComponent();
+    //this.loadComponent();
   }
 
   ngOnDestroy() {
 
   }
 
-  loadComponent() {
-    const tabItem = this.tabs[this.selectedTab];
+  // loadComponent() {
+  //   const tabItem = this.tabs[this.selectedTab];
 
-    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(tabItem.component);
+  //   const componentFactory = this.componentFactoryResolver.resolveComponentFactory(tabItem.component);
 
-    const viewContainerRef = this.tabHost.viewContainerRef;
-    viewContainerRef.clear();
+  //   const viewContainerRef = this.tabHost.viewContainerRef;
+  //   viewContainerRef.clear();
 
-    const componentRef = viewContainerRef.createComponent(componentFactory);
-    (<TabComponent>componentRef.instance).data = tabItem.data;
-  }
+  //   const componentRef = viewContainerRef.createComponent(componentFactory);
+  //   (<TabComponent>componentRef.instance).data = tabItem.data;
+  // }
 }
