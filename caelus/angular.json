@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "lazyModules": ["src/app/tabs/tabs.module"],
             "outputPath": "dist/caelus",
             "index": "src/index.html",
             "main": "src/main.ts",
