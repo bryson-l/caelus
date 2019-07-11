@@ -9,5 +9,6 @@ interface RegistryItem {
   * that you wish to load dynamically.
   */
   export const DynamicContentOutletRegistry: RegistryItem[] = [
-      {componentName: 'HomeComponent', modulePath: 'src/app/tabs/tabs.module', moduleName: 'MySpecialDynamicContentModule'}
+      {componentName: 'HomeComponent', modulePath: 'src/app/tabs/tabs.module', moduleName: 'MySpecialDynamicContentModule'},
+      {componentName: 'AboutComponent', modulePath: 'src/app/tabs/tabs.module', moduleName: 'MySpecialDynamicContentModule'}
     ];

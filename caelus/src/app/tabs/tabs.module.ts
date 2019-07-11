@@ -3,14 +3,16 @@ import { NgModule } from '@angular/core';
 import { HomeComponent } from './home/home.component';
 import { DynamicContentOutletModule } from '../dynamic-content-outlet/dynamic-content-outlet.module';
 import { DynamicContentOutletErrorComponent } from '../dynamic-content-outlet/dynamic-content-outlet-error.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, AboutComponent],
   imports: [CommonModule, DynamicContentOutletModule],
-  entryComponents: [HomeComponent, DynamicContentOutletErrorComponent]
+  entryComponents: [HomeComponent, DynamicContentOutletErrorComponent, AboutComponent]
 })
 export class MySpecialDynamicContentModule {
   static dynamicComponentsMap = {
-    HomeComponent
+    HomeComponent,
+    AboutComponent
   };
 }
