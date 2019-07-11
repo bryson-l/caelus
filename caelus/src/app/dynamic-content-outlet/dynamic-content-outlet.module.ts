@@ -10,6 +10,7 @@ import { DynamicContentOutletService } from './dynamic-content-outlet.service';
 
 @NgModule({
   imports: [CommonModule],
+  entryComponents: [ DynamicContentOutletErrorComponent ],
   declarations: [
     DynamicContentOutletComponent,
     DynamicContentOutletErrorComponent

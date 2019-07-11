@@ -10,5 +10,6 @@ interface RegistryItem {
   */
   export const DynamicContentOutletRegistry: RegistryItem[] = [
       {componentName: 'HomeComponent', modulePath: 'src/app/tabs/tabs.module', moduleName: 'MySpecialDynamicContentModule'},
-      {componentName: 'AboutComponent', modulePath: 'src/app/tabs/tabs.module', moduleName: 'MySpecialDynamicContentModule'}
+      {componentName: 'AboutComponent', modulePath: 'src/app/tabs/tabs.module', moduleName: 'MySpecialDynamicContentModule'},
+      {componentName: 'DynamicContentOutletErrorComponent', modulePath: 'src/app/dynamic-content-outlet/dynamic-content-outlet.module', moduleName:'DynamicContentOutletModule'}
     ];
