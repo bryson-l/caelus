@@ -1,8 +1,8 @@
-<app-nav [title]="title"></app-nav>
+<app-nav #navbar (onMenuItemClick)="loadComponent($event)" [title]="title"></app-nav>
 
 <div class="container">
   <!-- need to put selected 'tab' into this container div to display -->
-  <app-dynamic-content-outlet [componentName]="'HomeComponent'"></app-dynamic-content-outlet>
+  <app-dynamic-content-outlet [(componentName)]="componentName"></app-dynamic-content-outlet>
 </div>
 
 <router-outlet></router-outlet>

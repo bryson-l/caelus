@@ -1,5 +1,5 @@
 import { Component, Input, ViewChild, ComponentFactoryResolver } from '@angular/core';
-import { TabDirective } from './anchor/anchor.component';
+import { NavComponent } from './controls/nav/nav.component';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +8,18 @@ import { TabDirective } from './anchor/anchor.component';
 })
 export class AppComponent {
   title: string = 'Caelus';
-  @ViewChild(TabDirective, {static: true}) tabHost: TabDirective;
+  @ViewChild('navbar', {static: false}) navbar: NavComponent;
   interval: any;
+  componentName: string;
 
   constructor() { }
 
   ngOnInit() {
     //this.loadComponent();
   }
+
+  loadComponent(selectedComponent: string) {
+    this.componentName = selectedComponent
+  }
+
 }
