@@ -10,10 +10,16 @@ export class AppComponent {
   title: string = 'Caelus';
   @ViewChild(TabDirective, {static: true}) tabHost: TabDirective;
   interval: any;
+  selectedTab: string = "HomeComponent"
 
   constructor() { }
 
   ngOnInit() {
-    //this.loadComponent();
+    
   }
+
+  onTabSelect(e: any) {
+    this.selectedTab = e
+  }
+
 }

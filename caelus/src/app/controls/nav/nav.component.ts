@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-nav',
@@ -11,7 +11,13 @@ export class NavComponent implements OnInit {
 
   @Input('title') title: string = 'Title'
 
+  @Output('onTabSelect') onTabSelect = new EventEmitter()
+
   ngOnInit() {
+  }
+
+  onTabClick(componentName: string) {
+    this.onTabSelect.emit(componentName)
   }
 
 }
