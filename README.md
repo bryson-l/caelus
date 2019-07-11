@@ -9,3 +9,6 @@ To add a new 'tab':
 2. Add the component name to the `entryComponents` in `tabs.module.ts`
 3. Add the component name to the `static dynamicComponentsMap` that is also in `tabs.module.ts`
 4. Add a RegistryItem to the array in `dynamic-content-outlet.registry.ts` with the component name. Make sure the module path and module name are the same as the others in the array
+To add a new control:
+1. create new folder in `src/app/controls` and add appropriately named .ts and .html files
+2. add the newly created component name to the `declarations` and `exports` arrays in `src/app/controls/controls.module.ts`
