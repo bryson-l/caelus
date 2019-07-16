@@ -1,6 +1,20 @@
-<div style="text-align: center">
-    <h1>{{ title }}</h1>
-    <div class="row">
-        <img alt="AA Logo" src="../assets/pictures/587b517944060909aa603a8a.png" style="margin: 0 auto">
+<div class="row justify-content-center">
+        <div class="col-lg-6">
+            <dx-data-grid
+            #grid
+            [selectedRowKeys]="[]"
+            [dataSource]="testData"
+            keyExpr="id"
+            [hoverStateEnabled]="true"
+            [showBorders]="true">            
+            <dxo-selection mode="single"></dxo-selection>
+            <dxi-column dataField="city" caption="City"></dxi-column>
+            <dxi-column dataField="abbrev" caption="Code"></dxi-column>
+            </dx-data-grid>
+        </div>
     </div>
-</div>
+    <div class="row justify-content-center" *ngIf="grid.selectedRowKeys.length > 0">
+        <div class="col-lg-6">
+            <p>{{'Selected: ' + grid.instance.getSelectedRowsData()[0].city + ', ' + grid.instance.getSelectedRowsData()[0].abbrev}}</p>
+        </div>
+    </div>

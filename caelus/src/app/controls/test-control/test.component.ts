@@ -10,5 +10,6 @@ export class TestComponent implements OnInit {
 
   ngOnInit() {
   }
+  title: string = 'Caelus'
 
 }
