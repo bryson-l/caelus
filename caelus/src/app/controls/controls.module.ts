@@ -7,14 +7,15 @@ import {
 import { TestComponent } from './test-control/test.component';
 import { DevExtremeModule } from '../../../node_modules/devextreme-angular/ui/all'
 import { DxDataGridComponent } from '../../../node_modules/devextreme-angular/ui/data-grid'
+import { DxDataGridModule } from '../../../node_modules/devextreme-angular/ui/data-grid'
 
 @NgModule({
-  imports: [CommonModule, DevExtremeModule],
+  imports: [CommonModule, DevExtremeModule, DxDataGridModule],
   entryComponents: [  ],
   declarations: [
     TestComponent
   ],
-  exports: [ TestComponent, DxDataGridComponent ],
+  exports: [ TestComponent, DxDataGridComponent, DxDataGridModule ],
   providers: [
     {
       provide: NgModuleFactoryLoader,
