@@ -7,3 +7,18 @@ body {
     padding: 3rem 1.5rem;
     text-align: center;
   }
+  /* WIDGET CSS */
+  .widget-container {
+    padding: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  
+  .widget-main {
+    border: 2px solid #858585;
+    border-radius: 5px;
+  }
+
+  .widget-content {
+    padding: 15px 15px;
+  }
