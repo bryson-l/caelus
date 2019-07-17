@@ -1,31 +1,61 @@
-<!-- <div class="col-lg-12 widget-container">
-    <div class="row widget-main">
-        <div class="widget-title">
-            <p>{{ xTitle }}</p>
-        </div>
-        <div class="widget-content"> -->
-        <widget xTitle="Home Widget" className="col-lg-12">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <dx-data-grid
-                    #grid
-                    [selectedRowKeys]="[]"
-                    [dataSource]="testData"
-                    keyExpr="id"
-                    [hoverStateEnabled]="true"
-                    [showBorders]="true">            
-                    <dxo-selection mode="single"></dxo-selection>
-                    <dxi-column dataField="city" caption="City"></dxi-column>
-                    <dxi-column dataField="abbrev" caption="Code"></dxi-column>
-                    </dx-data-grid>
-                </div>
+<div class="row">
+    <div class="col-lg-6">
+        <widget xTitle="Upcoming Flights" className="col-lg-12">
+            <ul class="list" style="list-style-position: outside;">
+                <li>
+                    <div class="pull-left">
+                        RDU → CLT
+                    </div>
+                    <div class="pull-right">
+                        August 3 @ 8:15 a.m
+                    </div>
+                </li>
+                <li>
+                    <div class="pull-left">
+                        CLT → DFW
+                    </div>
+                    <div class="pull-right">
+                        August 3 @ 9:30 a.m
+                    </div>
+                </li>
+                <li>
+                    <div class="pull-left">
+                        DFW → JFK
+                    </div>
+                    <div class="pull-right">
+                        August 3 @ 12:30 p.m
+                    </div>
+                </li>
+            </ul>
+        </widget>
+    </div>
+    <div class="col-lg-6">
+        <widget xTitle="Pending Trades" className="col-lg-12">
+            <div class="row" style="padding-left: 25px">
+                <h2>June 5</h2>
             </div>
-            <div class="row justify-content-center" *ngIf="grid.selectedRowKeys.length > 0">
-                <div class="col-lg-6">
-                    <p>{{'Selected: ' + grid.instance.getSelectedRowsData()[0].city + ', ' + grid.instance.getSelectedRowsData()[0].abbrev}}</p>
-                </div>
+            <div class="row" style="width:100%">
+                <ul style="list-style-type:none;width:100%">
+                    <li>
+                        <div class="pull-left">
+                            <div class="row">
+                                <h2>TRADING</h2>
+                            </div>
+                            <div class="row">
+                                ATL → DEN @ 4:15 p.m
+                            </div>
+                        </div>
+                        <div class="pull-right">
+                            <div class="row">
+                                <h2>FOR</h2>
+                            </div>
+                            <div class="row">
+                                ATL → CLT @ 3:30 p.m
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </widget>
-        <!-- </div>
     </div>
-</div> -->
+</div>
