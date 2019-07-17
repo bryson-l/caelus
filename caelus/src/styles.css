@@ -10,15 +10,26 @@ body {
   /* WIDGET CSS */
   .widget-container {
     padding: 15px;
-    padding-left: 25px;
+    padding-left: 40px;
     padding-right: 25px;
   }
   
   .widget-main {
-    border: 2px solid #858585;
+    border: 2px solid #cecdcd;
     border-radius: 5px;
+    background-color: #dcd8d8;
   }
 
   .widget-content {
     padding: 15px 15px;
+    background-color: #ffffff;
+    margin: 5px 15px 15px 15px;
+  }
+
+  .widget-title {
+    color: #717171;
+    font-weight: bold;
+    padding: 0 0 0 15px;
+    margin-bottom: -20px;
+    margin-top: 5px;
   }

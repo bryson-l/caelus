@@ -1,6 +1,6 @@
 <app-nav (onTabSelect)="onTabSelect($event)" [title]="title"></app-nav>
 
-<div class="row">
+<div class="row" style="width:100%">
   <!-- need to put selected 'tab' into this container div to display -->
   <app-dynamic-content-outlet [(componentName)]="selectedTab" style="width: 100%;margin-left:15px;"></app-dynamic-content-outlet>
 </div>

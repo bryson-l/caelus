@@ -1,6 +1,10 @@
-<div class="col-lg-12 widget-container">
+<!-- <div class="col-lg-12 widget-container">
     <div class="row widget-main">
-        <div class="widget-content">
+        <div class="widget-title">
+            <p>{{ xTitle }}</p>
+        </div>
+        <div class="widget-content"> -->
+        <widget xTitle="Home Widget" className="col-lg-12">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <dx-data-grid
@@ -21,6 +25,7 @@
                     <p>{{'Selected: ' + grid.instance.getSelectedRowsData()[0].city + ', ' + grid.instance.getSelectedRowsData()[0].abbrev}}</p>
                 </div>
             </div>
-        </div>
+        </widget>
+        <!-- </div>
     </div>
-</div>
+</div> -->

@@ -17,5 +17,6 @@ export class HomeComponent {
     {city: 'New York', abbrev: 'JFK', id: 7}
   ]
   @ViewChild('grid', {static: false}) grid: DxDataGridComponent
+  xTitle: string = "Home Widget"
 
 }

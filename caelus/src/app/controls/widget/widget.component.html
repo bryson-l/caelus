@@ -1,5 +1,10 @@
-<div [className]="class + 'widget-container'">
-    <div class="widget-content">
-        
+<div class="{{ className + ' widget-container'}}">
+    <div class="row widget-main">
+        <div class="widget-title">
+            <p>{{ xTitle }}</p>
+        </div>
+        <div class="widget-content">
+            <ng-content></ng-content>
+        </div>
     </div>
 </div>

@@ -8,7 +8,8 @@ export class WidgetComponent implements OnInit {
 
   constructor() { }
 
-  @Input('test') class: string
+  @Input('className') className: string = "col-lg-12"
+  @Input('xTitle') xTitle: string = "Title"
 
   ngOnInit() {
   }
