@@ -1,38 +1,18 @@
 <div class="row">
     <div class="col-lg-6">
         <widget xTitle="Upcoming Flights" className="col-lg-12" height="162px">
-            <ul class="list" style="list-style-position: outside;">
-                <li>
-                    <div class="pull-left">
-                        RDU → CLT
-                    </div>
-                    <div class="pull-right">
-                        August 3 @ 8:15 a.m
-                    </div>
-                </li>
-                <li>
-                    <div class="pull-left">
-                        CLT → DFW
-                    </div>
-                    <div class="pull-right">
-                        August 3 @ 9:30 a.m
-                    </div>
-                </li>
-                <li>
-                    <div class="pull-left">
-                        DFW → JFK
-                    </div>
-                    <div class="pull-right">
-                        August 3 @ 12:30 p.m
-                    </div>
-                </li>
-            </ul>
+            <dx-data-grid
+            [dataSource]="testData">
+            <dxi-column dataField="from" caption="From"></dxi-column>
+            <dxi-column dataField="to" caption="To"></dxi-column>
+            <dxi-column dataField="time" caption="Time"></dxi-column>
+            </dx-data-grid>
         </widget>
     </div>
     <div class="col-lg-6">
         <widget xTitle="Pending Trades" className="col-lg-12">
             <div class="row" style="padding-left: 25px">
-                <h2>June 5</h2>
+                <h2>August 5</h2>
             </div>
             <div class="row" style="width:100%">
                 <ul style="list-style-type:none;width:100%">

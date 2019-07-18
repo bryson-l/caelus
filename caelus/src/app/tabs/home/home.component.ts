@@ -8,13 +8,9 @@ import { DxDataGridComponent } from 'devextreme-angular/ui/data-grid';
 export class HomeComponent {
 
   testData: any[] = [
-    {city: 'Raleigh', abbrev: 'RDU', id: 1},
-    {city: 'Atlanta', abbrev: 'ATL', id: 2},
-    {city: 'Los Angeles', abbrev: 'LAX', id: 3},
-    {city: 'Chicago', abbrev: 'ORD', id: 4},
-    {city: 'Dallas/Fort Worth', abbrev: 'DFW', id: 5},
-    {city: 'Denver', abbrev: 'DEN', id: 6},
-    {city: 'New York', abbrev: 'JFK', id: 7}
+    {from: "RDU", to: "CLT", time: "August 3, 2019 8:15 a.m"},
+    {from: "CLT", to:"DFW", time: "August 3, 2019 9:30 a.m"},
+    {from: "DFW", to: "JFK", time: "August 3, 2019 12:30 p.m"}
   ]
   @ViewChild('grid', {static: false}) grid: DxDataGridComponent
   @ViewChild('grid2', {static: false}) grid2: DxDataGridComponent
