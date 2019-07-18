@@ -3,7 +3,7 @@
         <div class="widget-title">
             <p>{{ xTitle }}</p>
         </div>
-        <div class="widget-content">
+        <div class="widget-content" [ngStyle]="{'height': height}">
             <div class="row">
                 <div class="col-lg-12">
                     <ng-content></ng-content>

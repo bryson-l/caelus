@@ -10,6 +10,7 @@ export class WidgetComponent implements OnInit {
 
   @Input('className') className: string = "col-lg-12"
   @Input('xTitle') xTitle: string = "Title"
+  @Input('height') height: string
 
   ngOnInit() {
   }
