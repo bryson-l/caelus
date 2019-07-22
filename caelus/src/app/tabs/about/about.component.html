@@ -15,7 +15,11 @@
     </div>
     <div class="col-lg-5">
         <widget xTitle="Legal Trades" className="col-lg-12">
-
+            <dx-data-grid
+            [dataSource]="testDataCurrent">
+                <dxi-column dataField="to" caption="To"></dxi-column>
+                <dxi-column dataField="time" caption="Time"></dxi-column>
+            </dx-data-grid>
         </widget>
     </div>
 </div>
