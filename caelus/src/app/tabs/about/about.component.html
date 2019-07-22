@@ -1,1 +1,21 @@
-<test></test>
+<div class="row">
+    <div class="col-lg-5">
+        <widget xTitle="Current Schedule" className="col-lg-12">
+            <dx-data-grid
+            [dataSource]="testDataCurrent">
+                <dxi-column dataField="to" caption="To"></dxi-column>
+                <dxi-column dataField="time" caption="Time"></dxi-column>
+            </dx-data-grid>
+        </widget>
+    </div>
+    <div class="col-lg-2 justify-content-center" style="padding-left: 135px;">
+        <div class="row" style="margin-top:70px;">
+            <button type="button" class="btn btn-primary" (click)="onTradeClick()"><i class="fa fa-exchange"></i> Trade</button>
+        </div>
+    </div>
+    <div class="col-lg-5">
+        <widget xTitle="Legal Trades" className="col-lg-12">
+
+        </widget>
+    </div>
+</div>
