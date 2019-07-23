@@ -19,8 +19,11 @@
     <div class="col-lg-5">
         <widget xTitle="Legal Trades" className="col-lg-12">
             <dx-data-grid #grid2
-            [dataSource]="testDataTrade">
+            [dataSource]="testDataTrade"
+            [selection]="{'mode': 'single'}"
+            (onRowClick)="onTradeSelect($event)">
                 <dxi-column dataField="to" caption="To"></dxi-column>
+                <dxi-column dataField="from" caption="From"></dxi-column>
                 <dxi-column dataField="time" caption="Time"></dxi-column>
             </dx-data-grid>
         </widget>
