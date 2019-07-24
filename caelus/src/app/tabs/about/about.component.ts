@@ -60,6 +60,9 @@ export class AboutComponent implements OnInit {
     if (e.key.time == '9:30 am') {
       this.setTradeData(e.key)
     }
+    else {
+      this.testDataTrade = []
+    }
   }
 
   onTradeSelect(e: any) {
