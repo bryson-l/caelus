@@ -40,17 +40,25 @@ export class AboutComponent implements OnInit {
     console.log(e)
   }
 
-  setTradeData() {
-    this.testDataTrade = [
-      {to: 'Dallas/Fort Worth (DFW)', from: 'Raleigh (RDU)', time: '9:30 am', id: 3}
-    ]
+  setTradeData(e: any) {
+    if (e.to !== 'Dallas/Fort Worth (DFW)') {
+      this.testDataTrade = [
+        {to: 'Dallas/Fort Worth (DFW)', from: 'Raleigh (RDU)', time: '9:30 am', id: 3}
+      ]
+    }
+    else {
+      this.testDataTrade = [
+        {to: 'Atlanta (ATL)', from: 'Raleigh (RDU)', time: '9:30 am', id: 2}
+      ]
+    }
+    
   }
 
   onCurrentSelect(e: any) {
     // e.key is the row's object
     this.currentSelected = e.key
     if (e.key.time == '9:30 am') {
-      this.setTradeData()
+      this.setTradeData(e.key)
     }
   }
 
@@ -62,8 +70,8 @@ export class AboutComponent implements OnInit {
     if (this.currentSelected && this.tradeSelected) {
       // removes the selected items from their respective data grids
       let index = this.grid.instance.getRowIndexByKey(this.currentSelected.id)
-      this.grid.dataSource.filter(x => x !== this.currentSelected)
-      this.grid2.dataSource.filter(x => x !== this.tradeSelected)
+      this.grid.dataSource = this.grid.dataSource.filter(x => x !== this.currentSelected)
+      this.grid2.dataSource = this.grid2.dataSource.filter(x => x !== this.tradeSelected)
       // adds the selected items to the opposite grid
       this.grid.dataSource.push(this.tradeSelected)
       this.grid2.dataSource.push(this.currentSelected)
