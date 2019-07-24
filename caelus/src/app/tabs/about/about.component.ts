@@ -62,14 +62,8 @@ export class AboutComponent implements OnInit {
     if (this.currentSelected && this.tradeSelected) {
       // removes the selected items from their respective data grids
       let index = this.grid.instance.getRowIndexByKey(this.currentSelected.id)
-      this.grid.dataSource.slice(0, index)
-      let index2 = this.grid2.instance.getRowIndexByKey(this.tradeSelected.id)
-      if (index2 > 1) {
-        this.grid2.dataSource.slice(0, index)
-      }
-      else {
-        this.grid2.dataSource.slice(1, this.grid2.dataSource.length)
-      }
+      this.grid.dataSource.filter(x => x !== this.currentSelected)
+      this.grid2.dataSource.filter(x => x !== this.tradeSelected)
       // adds the selected items to the opposite grid
       this.grid.dataSource.push(this.tradeSelected)
       this.grid2.dataSource.push(this.currentSelected)
