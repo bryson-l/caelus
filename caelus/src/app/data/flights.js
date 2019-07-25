@@ -1,4 +1,4 @@
-[
+module.exports = [
     {"flight_id": 1, "start": "RDU", "end": "DEN", "departure_time": "8:00 am, August 8 2019", "arrival_time": "12:00 pm, August 8 2019"},
     {"flight_id": 2, "start": "DEN", "end": "DFW", "departure_time": "2:00 pm, August 8 2019", "arrival_time": "2:00 pm, August 8 2019"},
     {"flight_id": 3, "start": "DFW", "end": "CLT", "departure_time": "9:15 am, August 9 2019", "arrival_time": "12:30 pm, August 9 2019"},

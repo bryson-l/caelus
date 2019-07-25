@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-lg-12">
+        <widget xTitle="Flights" className="col-lg-12">
+                <dx-data-grid #grid
+                [dataSource]="flightData"
+                [selection]="{'mode': 'single'}">
+                    <dxi-column dataField="flight_id" caption="ID"></dxi-column>
+                    <dxi-column dataField="start" caption="From"></dxi-column>
+                    <dxi-column dataField="end" caption="To"></dxi-column>
+                    <dxi-column dataField="departure_time" caption="Departure Time"></dxi-column>
+                    <dxi-column dataField="arrival_time" caption="Arrival Time"></dxi-column>
+                </dx-data-grid>
+        </widget>
+    </div>
+</div>

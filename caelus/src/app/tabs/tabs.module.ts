@@ -5,16 +5,18 @@ import { DynamicContentOutletModule } from '../dynamic-content-outlet/dynamic-co
 import { DynamicContentOutletErrorComponent } from '../dynamic-content-outlet/dynamic-content-outlet-error.component';
 import { AboutComponent } from './about/about.component';
 import { ControlsModule } from '../controls/controls.module';
+import { ScheduleComponent } from 'src/app/tabs/schedule/schedule.component';
 
 @NgModule({
-  declarations: [HomeComponent, AboutComponent],
+  declarations: [HomeComponent, AboutComponent, ScheduleComponent],
   imports: [CommonModule, DynamicContentOutletModule, ControlsModule],
-  entryComponents: [HomeComponent, DynamicContentOutletErrorComponent, AboutComponent]
+  entryComponents: [HomeComponent, DynamicContentOutletErrorComponent, AboutComponent, ScheduleComponent]
 })
 export class MySpecialDynamicContentModule {
   static dynamicComponentsMap = {
     HomeComponent,
     AboutComponent,
-    DynamicContentOutletErrorComponent
+    DynamicContentOutletErrorComponent,
+    ScheduleComponent
   };
 }
