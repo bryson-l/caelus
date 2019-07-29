@@ -5,10 +5,6 @@ import { PilotService } from './pilot.service';
 import { ScheduleService } from './schedule.service';
 
 @NgModule({
-  imports: [CommonModule],
-  declarations: [],
-  entryComponents: [ ],
-  exports: [ ],
   providers: [ FlightService, PilotService, ScheduleService ]
 })
 export class ServicesModule {
