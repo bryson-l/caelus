@@ -13,9 +13,9 @@ import { ScheduleService } from '../services/schedule.service';
 
 @NgModule({
   declarations: [HomeComponent, AboutComponent, ScheduleComponent],
-  imports: [CommonModule, DynamicContentOutletModule, ControlsModule, ServicesModule],
+  imports: [CommonModule, DynamicContentOutletModule, ControlsModule],
   entryComponents: [HomeComponent, DynamicContentOutletErrorComponent, AboutComponent, ScheduleComponent],
-  exports: [ DynamicContentOutletModule, ControlsModule, ServicesModule ]
+  exports: [ DynamicContentOutletModule, ControlsModule, ]
 })
 export class MySpecialDynamicContentModule {
   static dynamicComponentsMap = {

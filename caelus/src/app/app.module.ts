@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DynamicContentOutletComponent } from './shared/dynamic-content-outlet/dynamic-content-outlet.component';
 import { MySpecialDynamicContentModule } from './shared/tabs/tabs.module';
+import { ServicesModule } from './shared/services/services.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { MySpecialDynamicContentModule } from './shared/tabs/tabs.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MySpecialDynamicContentModule.forRoot()
+    MySpecialDynamicContentModule,
+    ServicesModule
   ],
   entryComponents: [ DynamicContentOutletComponent ],
   providers: [],

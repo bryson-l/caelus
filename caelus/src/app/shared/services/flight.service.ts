@@ -12,6 +12,10 @@ export class FlightService {
       })
   }
 
+  getAllFlights() {
+      return data
+  }
+
   
 
 }
