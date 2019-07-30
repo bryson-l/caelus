@@ -5,10 +5,11 @@ import {
   SystemJsNgModuleLoader
 } from '@angular/core';
 import { TestComponent } from './test-control/test.component';
-import { DevExtremeModule } from '../../../node_modules/devextreme-angular/ui/all'
-import { DxDataGridComponent } from '../../../node_modules/devextreme-angular/ui/data-grid'
-import { DxDataGridModule } from '../../../node_modules/devextreme-angular/ui/data-grid'
-import { WidgetComponent } from 'src/app/controls/widget/widget.component';
+import { DevExtremeModule } from '../../../../node_modules/devextreme-angular/ui/all'
+import { DxDataGridComponent } from '../../../../node_modules/devextreme-angular/ui/data-grid'
+import { DxDataGridModule } from '../../../../node_modules/devextreme-angular/ui/data-grid'
+import { WidgetComponent } from 'src/app/shared/controls/widget/widget.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   imports: [CommonModule, DevExtremeModule, DxDataGridModule],
@@ -16,13 +17,15 @@ import { WidgetComponent } from 'src/app/controls/widget/widget.component';
   declarations: [
     TestComponent,
     WidgetComponent,
-    WidgetComponent
+    WidgetComponent,
+    NavComponent
   ],
   exports: [ 
     TestComponent,
     DxDataGridComponent, 
     DxDataGridModule, 
-    WidgetComponent ],
+    WidgetComponent,
+    NavComponent, ],
   providers: [
     {
       provide: NgModuleFactoryLoader,

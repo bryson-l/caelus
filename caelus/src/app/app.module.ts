@@ -3,29 +3,25 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavComponent } from './controls/nav/nav.component';
-import { DynamicContentOutletComponent } from './dynamic-content-outlet/dynamic-content-outlet.component';
-import { DynamicContentOutletModule } from './dynamic-content-outlet/dynamic-content-outlet.module';
-import { HomeComponent } from './tabs/home/home.component';
+import { DynamicContentOutletComponent } from './shared/dynamic-content-outlet/dynamic-content-outlet.component';
+import { MySpecialDynamicContentModule } from './shared/tabs/tabs.module';
+import { ServicesModule } from './shared/services/services.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DynamicContentOutletModule
+    MySpecialDynamicContentModule,
+    ServicesModule
   ],
-  entryComponents: [DynamicContentOutletComponent],
+  entryComponents: [ DynamicContentOutletComponent ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
 
-  static dynamicComponentsMap: any = {
-    HomeComponent
-  }
 
 }
