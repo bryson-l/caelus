@@ -1,5 +1,4 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { DxDataGridComponent } from 'devextreme-angular/ui/data-grid';
 import data from '../../data/flights.js';
 import { FlightService } from '../../services/flight.service.js';
 
