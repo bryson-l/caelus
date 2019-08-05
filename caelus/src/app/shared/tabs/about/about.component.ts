@@ -36,18 +36,16 @@ export class AboutComponent implements OnInit {
                                                                     })
                                                 })
                                                 this.testDataCurrent = flightArray
+                                                this.grid.instance.selectRowsByIndexes([0])
                                               })
                        })
     }, 20)
   }
 
   testDataCurrent: any[] = [
-    {to: 'Raleigh (RDU)', from: 'Raleigh (RDU)', time: '8:00 am', id: 1},
-    {to: 'Atlanta (ATL)', from: 'Raleigh (RDU)', time: '9:30 am', id: 2}
   ]
 
   testDataTrade: any[] = [
-    {to: 'Dallas/Fort Worth (DFW)', from: 'Raleigh (RDU)', time: '9:30 am', id: 3}
   ]
 
   currentSelected: any = {};
@@ -77,12 +75,8 @@ export class AboutComponent implements OnInit {
   onCurrentSelect(e: any) {
     // e.key is the row's object
     this.currentSelected = e.key
-    if (e.key.time == '9:30 am') {
-      this.setTradeData(e.key)
-    }
-    else {
-      this.testDataTrade = []
-    }
+    // now to get the valid trade data
+    
   }
 
   onTradeSelect(e: any) {

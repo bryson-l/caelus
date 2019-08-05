@@ -19,6 +19,21 @@ export class FlightService {
       return data
   }
 
-  
+  getValidTrades(flightId: number): Observable<Flight[]> {
+      let tradeFor: Flight
+      data.forEach(flight => {
+          if (flight.flight_id == flightId) {
+            tradeFor = flight
+          }
+      })
+      let validTrades: Flight[] = []
+      data.forEach(flight => {
+        // NEED TO IMPLEMENT USE OF DATE OBJECTS SO I CAN EASILY CHECK FOR VALID TRADES
+        // if (tradeFor.arrivalTime < flight.departure_time - 15) {
+
+        // }
+      })
+      return null
+  }  
 
 }
