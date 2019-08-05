@@ -1,5 +1,9 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { DxDataGridComponent } from 'devextreme-angular/ui/data-grid';
+import { ScheduleService } from '../../services/schedule.service';
+import { PilotService } from '../../services/pilot.service';
+import { Pilot } from '../../models/pilot';
+import { FlightService } from '../../services/flight.service';
 
 @Component({
   selector: 'about',
@@ -7,17 +11,33 @@ import { DxDataGridComponent } from 'devextreme-angular/ui/data-grid';
 })
 export class AboutComponent implements OnInit {
 
-  ngOnInit() {
+  constructor(
+    private scheduleService: ScheduleService,
+    private pilotService: PilotService,
+    private flightService: FlightService
+  ){}
+
+  loggedInUser: Pilot = new Pilot();
+
+  ngOnInit() {// this is so disgusting, i can see Anthony's disappointment
+  // BUT IT WORKS
     setTimeout(() => {
-      this.grid.instance.selectRowsByIndexes([0])
-      this.grid.dataSource = [
-        {to: 'Raleigh (RDU)', from: 'Raleigh (RDU)', time: '8:00 am', id: 1},
-        {to: 'Atlanta (ATL)', from: 'Raleigh (RDU)', time: '9:30 am', id: 2}
-      ]
-      this.grid2.dataSource = []
-      if (this.grid.selectedRowKeys.length < 1) {
-        this.grid2.dataSource = []
-      }
+      this.pilotService.getLoggedInUser()
+                       .subscribe(data => {
+                          this.loggedInUser = data
+                          this.scheduleService.getScheduleById(this.loggedInUser.scheduleId)
+                                              .subscribe(data => {
+                                                let flightIds = data.flightIds
+                                                let flightArray = []
+                                                flightIds.forEach(flightId => {
+                                                  this.flightService.getFlightById(flightId)
+                                                                    .subscribe(flightObj => {
+                                                                      flightArray.push(flightObj)
+                                                                    })
+                                                })
+                                                this.testDataCurrent = flightArray
+                                              })
+                       })
     }, 20)
   }
 

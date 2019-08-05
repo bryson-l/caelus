@@ -5,6 +5,7 @@ import { DxDataGridComponent } from 'devextreme-angular/ui/data-grid';
   selector: 'home',
   templateUrl: './home.component.html'
 })
+
 export class HomeComponent {
 
   testData: any[] = [
@@ -12,6 +13,7 @@ export class HomeComponent {
     {from: "CLT", to:"DFW", time: "9:30 a.m, August 3, 2019"},
     {from: "DFW", to: "JFK", time: "12:30 p.m, August 3, 2019"}
   ]
+  
   @ViewChild('grid', {static: false}) grid: DxDataGridComponent
   @ViewChild('grid2', {static: false}) grid2: DxDataGridComponent
 
