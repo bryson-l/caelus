@@ -17,17 +17,17 @@ export class AboutComponent implements OnInit {
     private flightService: FlightService
   ){}
 
-  loggedInUser: Pilot = new Pilot();
+  loggedInUser: any;
 
   ngOnInit() {// this is so disgusting, i can see Anthony's disappointment
-  // BUT IT WORKS
+  // no longer works
     setTimeout(() => {
       this.pilotService.getLoggedInUser()
                        .subscribe(data => {
                           this.loggedInUser = data
-                          this.scheduleService.getScheduleById(this.loggedInUser.scheduleId)
-                                              .subscribe(data => {
-                                                let flightIds = data.flightIds
+                          this.scheduleService.getScheduleById(this.loggedInUser.schedule_id)
+                                              .subscribe((data: any) => {
+                                                let flightIds = data.flight_ids
                                                 let flightArray = []
                                                 flightIds.forEach(flightId => {
                                                   this.flightService.getFlightById(flightId)
@@ -76,7 +76,10 @@ export class AboutComponent implements OnInit {
     // e.key is the row's object
     this.currentSelected = e.key
     // now to get the valid trade data
-    
+    this.flightService.getValidTrades(this.currentSelected.flightId)
+                      .subscribe(data => {
+                        this.grid2.dataSource = data
+                      })
   }
 
   onTradeSelect(e: any) {

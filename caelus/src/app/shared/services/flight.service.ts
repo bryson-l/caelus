@@ -1,18 +1,26 @@
 import data from '../data/flights.js'
 import { Observable } from 'rxjs';
 import { Flight } from '../models/flight.js';
+import moment from 'moment';
+import { of } from 'rxjs';
 
 export class FlightService {
 
   constructor() { }
 
   getFlightById(flightId: number): Observable<Flight> {
+      let returnValue: Observable<Flight>
       data.forEach(flight => {
           if (flight.flight_id == flightId) {
-              return flight
+              returnValue = of(flight)
           }
       })
-      return null
+      if (returnValue) {
+          return returnValue
+      }
+      else {
+          return null
+      }
   }
 
   getAllFlights(): Observable<Flight[]> {
@@ -29,11 +37,18 @@ export class FlightService {
       let validTrades: Flight[] = []
       data.forEach(flight => {
         // NEED TO IMPLEMENT USE OF DATE OBJECTS SO I CAN EASILY CHECK FOR VALID TRADES
-        // if (tradeFor.arrivalTime < flight.departure_time - 15) {
-
-        // }
+        let arrival = moment(tradeFor.arrivalTime)
+        let departure = moment(flight.departure_time)
+        if (arrival < departure.subtract(15, 'minutes')) {
+            validTrades.push(flight)
+        }
       })
-      return null
+      if (validTrades.length || Array.isArray(validTrades)) {
+        return of(validTrades);
+      }
+      else {
+          return null
+      }
   }  
 
 }

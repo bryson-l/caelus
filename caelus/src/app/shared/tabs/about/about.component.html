@@ -5,9 +5,11 @@
             [dataSource]="testDataCurrent"
             [selection]="{'mode': 'single'}"
             (onRowClick)="onCurrentSelect($event)">
-                <dxi-column dataField="to" caption="To"></dxi-column>
-                <dxi-column dataField="from" caption="From"></dxi-column>
-                <dxi-column dataField="time" caption="Time"></dxi-column>
+                <dxi-column dataField="flight_id" caption="Flight ID"></dxi-column>
+                <dxi-column dataField="start" caption="From"></dxi-column>
+                <dxi-column dataField="end" caption="To"></dxi-column>
+                <dxi-column dataField="departure_time" caption="Departure Time" dataType="datetime"></dxi-column>
+                <dxi-column dataField="arrival_time" caption="Arrival Time" dataType="datetime"></dxi-column>
             </dx-data-grid>
         </widget>
     </div>
