@@ -28,7 +28,7 @@ export class FlightService {
   }
 
   getValidTrades(flightId: number): Observable<Flight[]> {
-      let tradeFor: Flight
+      let tradeFor: any
       data.forEach(flight => {
           if (flight.flight_id == flightId) {
             tradeFor = flight
@@ -37,9 +37,10 @@ export class FlightService {
       let validTrades: Flight[] = []
       data.forEach(flight => {
         // NEED TO IMPLEMENT USE OF DATE OBJECTS SO I CAN EASILY CHECK FOR VALID TRADES
-        let arrival = moment(tradeFor.arrivalTime)
+        let arrival = moment(tradeFor.arrival_time)
         let departure = moment(flight.departure_time)
-        if (arrival < departure.subtract(15, 'minutes')) {
+        // need to write function to check if a trade conflicts with the rest of current schedule
+        if (arrival < departure.subtract(15, 'minutes') && arrival < departure) {
             validTrades.push(flight)
         }
       })

@@ -20,7 +20,7 @@ export class AboutComponent implements OnInit {
   loggedInUser: any;
 
   ngOnInit() {// this is so disgusting, i can see Anthony's disappointment
-  // no longer works
+  // IT WORKS NOW
     setTimeout(() => {
       this.pilotService.getLoggedInUser()
                        .subscribe(data => {
@@ -76,7 +76,7 @@ export class AboutComponent implements OnInit {
     // e.key is the row's object
     this.currentSelected = e.key
     // now to get the valid trade data
-    this.flightService.getValidTrades(this.currentSelected.flightId)
+    this.flightService.getValidTrades(this.currentSelected.flight_id)
                       .subscribe(data => {
                         this.grid2.dataSource = data
                       })
