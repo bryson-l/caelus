@@ -76,7 +76,7 @@ export class AboutComponent implements OnInit {
     // e.key is the row's object
     this.currentSelected = e.key
     // now to get the valid trade data
-    this.flightService.getValidTrades(this.currentSelected.flight_id)
+    this.flightService.getValidTrades(this.currentSelected.flight_id, this.testDataCurrent)
                       .subscribe(data => {
                         this.grid2.dataSource = data
                       })

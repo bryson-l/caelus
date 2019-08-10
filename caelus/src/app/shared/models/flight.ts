@@ -1,7 +1,7 @@
 export class Flight {
-    flightId: number = -1;
+    flight_id: number = -1;
     start: string;
     end: string;
-    departureTime: Date; // will later be changed to a date time
-    arrivalTime: Date;
+    departure_time: Date; // will later be changed to a date time
+    arrival_time: Date;
 }
