@@ -2,6 +2,8 @@ import data from '../data/schedule.js'
 import { Observable } from 'rxjs';
 import { Schedule } from '../models/schedule.js';
 import { of } from 'rxjs'
+import { Flight } from '../models/flight.js';
+import { nextTick } from 'q';
 
 export class ScheduleService {
 
@@ -21,7 +23,6 @@ export class ScheduleService {
           return null
       }
   }
-
   
 
 }

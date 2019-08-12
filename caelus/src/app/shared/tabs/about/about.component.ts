@@ -4,6 +4,7 @@ import { ScheduleService } from '../../services/schedule.service';
 import { PilotService } from '../../services/pilot.service';
 import { Pilot } from '../../models/pilot';
 import { FlightService } from '../../services/flight.service';
+import { Schedule } from '../../models/schedule';
 
 @Component({
   selector: 'about',
@@ -18,6 +19,7 @@ export class AboutComponent implements OnInit {
   ){}
 
   loggedInUser: any;
+  showRedBox: boolean = false;
 
   ngOnInit() {// this is so disgusting, i can see Anthony's disappointment
   // IT WORKS NOW
@@ -100,6 +102,10 @@ export class AboutComponent implements OnInit {
       this.grid2.instance.clearSelection()
       this.currentSelected = {}
       this.tradeSelected = {}
+      let schedule = new Schedule(this.grid.dataSource as any[])
+      if (!schedule.isValidSchedule(this.flightService, 0)) {
+        this.showRedBox = true
+      }
     }
   }
 

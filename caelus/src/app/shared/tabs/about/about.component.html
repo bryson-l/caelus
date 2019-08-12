@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-5">
-        <widget xTitle="Current Schedule" className="col-lg-12">
+        <widget xTitle="Current Schedule" className="col-lg-12" [style]="showRedBox ? 'border: solid 2px red' : null">
             <dx-data-grid #grid
             [dataSource]="testDataCurrent"
             [selection]="{'mode': 'single'}"
