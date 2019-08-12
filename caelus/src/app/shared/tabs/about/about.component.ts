@@ -106,6 +106,8 @@ export class AboutComponent implements OnInit {
       if (!schedule.isValidSchedule(this.flightService, 0)) {
         this.showRedBox = true
       }
+      // need to make this more like a live product
+      // take the tradeFor and add it to the current schedule, then refresh the data in the grid
     }
   }
 
