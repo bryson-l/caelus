@@ -96,12 +96,13 @@ export class AboutComponent implements OnInit {
                             if (schedule.isValidSchedule(this.flightService) && response.ok) {
                               this.showRedBox = false
                             }
-                            else {
-                              this.showRedBox = true
-                            }
-                          })
+                          },
+                          (err) => {
+                            this.showRedBox = true
+                        })
     }
   }
+    // holy shit i'm about to fall asleep lord help me
     // if (this.currentSelected && this.tradeSelected) {
     //   // removes the selected items from their respective data grids
     //   let index = this.grid.instance.getRowIndexByKey(this.currentSelected.id)

@@ -8,7 +8,7 @@ export class Schedule {
     constructor(array?: any[], pilotId?: number) {
         if (array) {
             array.forEach(element => {
-                this.flightIds.push(element.flightId)
+                this.flightIds.push(element.flight_id)
             })
         }
         if (pilotId) {
