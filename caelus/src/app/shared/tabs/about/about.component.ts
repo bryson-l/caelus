@@ -90,25 +90,38 @@ export class AboutComponent implements OnInit {
 
   onTradeClick() {
     if (this.currentSelected && this.tradeSelected) {
-      // removes the selected items from their respective data grids
-      let index = this.grid.instance.getRowIndexByKey(this.currentSelected.id)
-      //this.grid.dataSource = this.grid.dataSource.filter(x => x !== this.currentSelected)
-      //this.grid2.dataSource = this.grid2.dataSource.filter(x => x !== this.tradeSelected)
-      // adds the selected items to the opposite grid
-      //this.grid.dataSource.push(this.tradeSelected)
-      //this.grid2.dataSource.push(this.currentSelected)
-      // deselect all and set the selected variables to nothing
-      this.grid.instance.clearSelection()
-      this.grid2.instance.clearSelection()
-      this.currentSelected = {}
-      this.tradeSelected = {}
-      let schedule = new Schedule(this.grid.dataSource as any[])
-      if (!schedule.isValidSchedule(this.flightService, 0)) {
-        this.showRedBox = true
-      }
-      // need to make this more like a live product
-      // take the tradeFor and add it to the current schedule, then refresh the data in the grid
+      let schedule = new Schedule(this.testDataCurrent, 2)
+      this.scheduleService.tradeFlights(this.currentSelected, this.tradeSelected, schedule)
+                          .subscribe(response => {
+                            if (schedule.isValidSchedule(this.flightService) && response.ok) {
+                              this.showRedBox = false
+                            }
+                            else {
+                              this.showRedBox = true
+                            }
+                          })
     }
   }
+    // if (this.currentSelected && this.tradeSelected) {
+    //   // removes the selected items from their respective data grids
+    //   let index = this.grid.instance.getRowIndexByKey(this.currentSelected.id)
+    //   //this.grid.dataSource = this.grid.dataSource.filter(x => x !== this.currentSelected)
+    //   //this.grid2.dataSource = this.grid2.dataSource.filter(x => x !== this.tradeSelected)
+    //   // adds the selected items to the opposite grid
+    //   //this.grid.dataSource.push(this.tradeSelected)
+    //   //this.grid2.dataSource.push(this.currentSelected)
+    //   // deselect all and set the selected variables to nothing
+    //   this.grid.instance.clearSelection()
+    //   this.grid2.instance.clearSelection()
+    //   this.currentSelected = {}
+    //   this.tradeSelected = {}
+    //   let schedule = new Schedule(this.grid.dataSource as any[])
+    //   if (!schedule.isValidSchedule(this.flightService, 0)) {
+    //     this.showRedBox = true
+    //   }
+    //   // need to make this more like a live product
+    //   // take the tradeFor and add it to the current schedule, then refresh the data in the grid
+    // }
+  
 
 }
