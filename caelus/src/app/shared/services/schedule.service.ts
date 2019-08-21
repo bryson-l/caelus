@@ -94,6 +94,4 @@ export class ScheduleService {
     }
     return (sameStart && timeFromPrevFlight)
   }
-  
-
 }
