@@ -89,17 +89,24 @@ export class AboutComponent implements OnInit {
   }
 
   onTradeClick() {
-    if (this.currentSelected && this.tradeSelected) {
+    if (this.currentSelected && this.tradeSelected) { 
       let schedule = new Schedule(this.testDataCurrent, 2)
-      this.scheduleService.tradeFlights(this.currentSelected, this.tradeSelected, schedule)
-                          .subscribe(response => {
-                            if (schedule.isValidSchedule(this.flightService) && response.ok) {
-                              this.showRedBox = false
-                            }
-                          },
-                          (err) => {
-                            this.showRedBox = true
-                        })
+      let trade = this.scheduleService.tradeFlights(this.currentSelected, this.tradeSelected, schedule)
+      // need to update the grid data
+      this.grid.dataSource = this.scheduleService.flightIdsToFlights(trade.schedule.flightIds)
+      this.grid.instance.deselectAll()
+      this.grid2.dataSource = []
+      if (trade.status = 'success') {
+        if (schedule.isValidSchedule(this.flightService, 0)) {
+          this.showRedBox = false
+        }
+        else {
+          this.showRedBox = true
+        }
+      }
+      else {
+        // somehow tell the user that this is not a valid trade
+      }
     }
   }
     // holy shit i'm about to fall asleep lord help me

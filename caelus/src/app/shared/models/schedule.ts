@@ -4,7 +4,7 @@ import { FlightService } from '../services/flight.service';
 export class Schedule {
     scheduleId: number = -1;
     pilotId: number = -1;
-    flightIds: number[];
+    flightIds: number[] = [];
     constructor(array?: any[], pilotId?: number) {
         if (array) {
             array.forEach(element => {

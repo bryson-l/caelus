@@ -1,4 +1,5 @@
 import data from '../data/schedule.js'
+import flightData from '../data/flights.js'
 import { Observable } from 'rxjs';
 import { Schedule } from '../models/schedule.js';
 import { of } from 'rxjs'
@@ -26,10 +27,11 @@ export class ScheduleService {
       }
   }
 
-  tradeFlights(tradeAway: Flight, tradeFor: Flight, currentSchedule: Schedule): Observable<Response> {
+  tradeFlights(tradeAway: Flight, tradeFor: Flight, currentSchedule: Schedule) {
     // need to get index for tradeAway and check if it is a valid trade
     let index = this.getIndex(tradeAway, currentSchedule)
     let prevFlight: Flight
+    let cleanSchedule: Schedule = currentSchedule
     if (index > 0) {
         prevFlight = currentSchedule[index - 1]
     }
@@ -52,7 +54,10 @@ export class ScheduleService {
         }
         // now to add the tradeFor to the currentSchedule
         currentSchedule.flightIds.push(tradeFor.flight_id)
-        return new Observable<Response>()
+        return {status: 'success', schedule: currentSchedule}
+    }
+    else {
+        return {status: 'this is not a valid trade', schedule: cleanSchedule}
     }
   }
 
@@ -60,7 +65,7 @@ export class ScheduleService {
     let flights: any[] = this.flightIdsToFlights(schedule.flightIds)
     let returnIndex: number
     for (let i=0; i < flights.length; i++) {
-        if (schedule[i] == flight) {
+        if (flights[i] == flight) {
             returnIndex = i
         }
     }
@@ -68,9 +73,9 @@ export class ScheduleService {
   }
 
   flightIdsToFlights(flightIds: number[]) {
-      let returnValue: Flight[]
+      let returnValue: Flight[] = []
       flightIds.forEach(flightId => {
-        data.forEach((flight: Flight) => {
+        flightData.forEach((flight: Flight) => {
             if (flight.flight_id == flightId) {
                 returnValue.push(flight)
             }
@@ -82,7 +87,7 @@ export class ScheduleService {
   isValidTrade(tradeFor: Flight, flight: Flight, previousFlight: Flight): boolean {
     let sameStart: boolean = tradeFor.start == flight.start
     let timeFromPrevFlight: boolean = true
-    if (previousFlight) {
+    if (previousFlight.start) {
         if (moment(previousFlight.arrival_time).add(15, 'minutes') > moment(tradeFor.departure_time)) {
             timeFromPrevFlight = false
         }
